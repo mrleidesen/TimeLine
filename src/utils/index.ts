@@ -1,3 +1,7 @@
+import dayjs from 'dayjs'
+
+export const TIME_ZONE = 3600000 * 15
+
 export const timelines = [
   {
     name: 'Battlefield 6 Reveal Event',
@@ -89,6 +93,9 @@ export const timelines = [
   //   time: '2021/06/09 07:00:00', // 太平洋时间
   //   live: ''
   // },
-]
+].map(item => ({
+  ...item,
+  time: dayjs(new Date(item.time).getTime() + TIME_ZONE).format('YYYY/MM/DD HH:mm')
+}))
 
 export const sortTimelines = timelines.sort((a, b) => (new Date(a.time).getTime() - new Date(b.time).getTime()))
