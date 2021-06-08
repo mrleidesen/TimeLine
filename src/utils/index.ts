@@ -1,6 +1,7 @@
 import dayjs from 'dayjs'
 
-export const TIME_ZONE = 3600000 * 15
+export const HOUR = 3600000
+export const TIME_ZONE = HOUR * 15
 
 export const timelines = [
   {
@@ -99,3 +100,15 @@ export const timelines = [
 }))
 
 export const sortTimelines = timelines.sort((a, b) => (new Date(a.time).getTime() - new Date(b.time).getTime()))
+
+export const filterTimeline = (time: string | Date) => sortTimelines.map(item => {
+  const itemTime = new Date(item.time).getTime()
+  const outTime = new Date(time).getTime()
+  const incTime = itemTime - outTime
+
+  return {
+    ...item,
+    isExpire: itemTime < outTime,
+    isSoon: (incTime <= HOUR) && incTime > 0
+  }
+})
