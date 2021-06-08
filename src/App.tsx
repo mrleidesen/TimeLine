@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import dayjs from 'dayjs'
 
-import Logo from './assets/E3Logo21.png'
+// import Logo from './assets/E3Logo21.png'
 import { filterTimeline } from '@/utils'
 
 export default function App() {
@@ -35,11 +35,12 @@ export default function App() {
         <div className="pt-14 w-full">
             <header className="fixed top-0 left-0 w-full h-14 bg-black text-white">
                 <div className="container h-full mx-auto flex items-center box-border py-3 px-5">
-                    <img 
+                    {/* <img 
                         className="object-contain object-center h-full"
                         src={Logo} 
                         alt="Logo" 
-                    />
+                    /> */}
+                    <span className="text-3xl font-mono font-semibold text-white select-none">TimeLine</span>
                 </div>
             </header>
             <div className="w-full overflow-auto box-border py-3 bg-gray-100">
@@ -49,7 +50,7 @@ export default function App() {
                             <a
                                 href={item.live}
                                 target="_blank"
-                                className={`sm:w-full md:w-4/5 lg:w-3/5 rounded-md box-border p-3 bg-white flex flex-col font-mono
+                                className={`sm:w-full md:w-4/5 lg:w-3/5 rounded-md box-border p-3 select-none bg-white flex flex-col font-mono
                                 ${item.isSoon ? 'shadow-lg mb-5' : 'shadow mb-3'} ${item.isExpire ? 'text-gray-500' : ''}`}
                                 key={i}
                             >
@@ -58,7 +59,7 @@ export default function App() {
                                     <span className="text-red-500">{item.isSoon ? '即将开始' : ''}</span>
                                 </div>
                                 
-                                <span className="text-sm">北京时间：{item.time}</span>
+                                <span className="text-sm">北京时间：<span className="text-yellow-600">{item.time}</span></span>
                                 <span className="text-sm text-gray-500">{item.desc}</span>
                             </a>
                         ))}
