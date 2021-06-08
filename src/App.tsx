@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function App() {
     return (
-        <div className="bg-white">Hello App</div>
+        <div className="min-h-screen w-full">
+            
+        </div>
     )
 }
