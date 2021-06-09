@@ -88,6 +88,12 @@ export const timelines = [
     time: '2021/07/22 00:00:00', // 太平洋时间
     live: 'https://www.twitch.tv/ea'
   },
+  {
+    name: 'Capcom Showcase',
+    desc: '卡普空发布会。将会有《怪物猎人 崛起》《怪物猎人物语2》《大逆转裁判 编年史》《生化危机 村庄》的新消息',
+    time: '2021/06/14 14:30:00', // 太平洋时间
+    live: 'https://www.youtube.com/c/CapcomUSA/featured'
+  },
   // {
   //   name: '',
   //   desc: '',

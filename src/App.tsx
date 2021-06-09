@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import dayjs from 'dayjs'
 
-// import Logo from './assets/E3Logo21.png'
 import { filterTimeline } from '@/utils'
 
 export default function App() {
@@ -35,11 +34,6 @@ export default function App() {
         <div className="pt-14 w-full">
             <header className="fixed top-0 left-0 w-full h-14 bg-black text-white">
                 <div className="container h-full mx-auto flex items-center box-border py-3 px-5">
-                    {/* <img 
-                        className="object-contain object-center h-full"
-                        src={Logo} 
-                        alt="Logo" 
-                    /> */}
                     <span className="text-3xl font-mono font-semibold text-white select-none">TimeLine</span>
                 </div>
             </header>
