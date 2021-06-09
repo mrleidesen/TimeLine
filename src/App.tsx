@@ -45,7 +45,7 @@ export default function App() {
                                 href={item.live}
                                 target="_blank"
                                 className={`sm:w-full md:w-4/5 lg:w-3/5 rounded-md box-border p-3 select-none bg-white flex flex-col font-mono
-                                ${item.isSoon ? 'shadow-lg mb-5' : 'shadow mb-3'} ${item.isExpire ? 'text-gray-500' : ''}`}
+                                ${(item.isToday && !item.isExpire) ? 'shadow-lg mb-5' : 'shadow mb-3'} ${item.isExpire ? 'text-gray-500' : ''}`}
                                 key={i}
                             >
                                 <div className="flex">
@@ -53,7 +53,7 @@ export default function App() {
                                     <span className="text-red-500">{item.isSoon ? '即将开始' : ''}</span>
                                 </div>
                                 
-                                <span className="text-sm">北京时间：<span className="text-yellow-600">{item.time}</span></span>
+                                <span className="text-sm">北京时间：<span className="text-yellow-600">{item.local}</span></span>
                                 <span className="text-sm text-gray-500">{item.desc}</span>
                             </a>
                         ))}
