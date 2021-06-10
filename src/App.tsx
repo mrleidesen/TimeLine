@@ -1,34 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import dayjs from 'dayjs'
+import React from 'react'
 
 import { filterTimeline } from '@/utils'
+import { useDatetime } from '@/utils/hooks'
 
 export default function App() {
-    const [nowTime, setNowTime] = useState(dayjs().format('YYYY/MM/DD HH:mm:ss'))
-    let timer: number | null = null
-
-    useEffect(() => {
-        if (!timer) {
-            setTimer()
-        }
-
-        return () => {
-            disposeTimer()
-        }
-    }, [])
-
-    const setTimer = () => {
-        disposeTimer()
-        timer = setInterval(() => {
-            setNowTime(dayjs().format('YYYY/MM/DD HH:mm:ss'))
-        }, 1000)
-    }
-    const disposeTimer = () => {
-        if (timer) {
-            clearInterval(timer)
-            timer = null
-        }
-    }
+    const nowTime = useDatetime()
 
     return (
         <div className="pt-14 w-full">
