@@ -56,12 +56,12 @@ export default function App() {
                             <a
                                 href={item.live}
                                 target="_blank"
-                                className={`sm:w-full md:w-4/5 lg:w-3/5 rounded-md box-border p-3 select-none bg-white flex flex-col font-mono
+                                className={`sm:w-full md:w-4/5 lg:w-3/5 rounded-md box-border p-3 select-none bg-white flex flex-col font-sans
                                 ${item.isToday ? 'shadow-lg mb-5' : 'shadow mb-3'} ${item.isExpire ? 'text-gray-500' : ''}`}
                                 key={i}
                             >
                                 <div className="flex">
-                                    <h2 className="flex-1 text-xl font-semibold mb-2">{item.name}</h2>
+                                    <h2 className="flex-1 text-xl font-semibold mb-2 font-mono">{item.name}</h2>
                                     <span className="text-red-500">{item.isSoon ? '即将开始' : ''}</span>
                                 </div>
                                 
