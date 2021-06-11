@@ -133,7 +133,8 @@ export const filterTimeline = (time: string | Date) => sortTimelines.map(item =>
 
     return {
         ...item,
-        isExpire: itemTime < outTime,
+        isExpire: (itemTime + HOUR / 2) < outTime,
+        isGoing: (outTime > itemTime) && (outTime <= (itemTime + HOUR / 2)),
         isSoon: (incTime <= HOUR) && incTime > 0,
         isToday: itemDate === outDate
     }
