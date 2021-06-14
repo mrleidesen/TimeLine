@@ -124,18 +124,23 @@ export const timelines = [{
 
 export const sortTimelines = timelines.sort((a, b) => (new Date(a.local).getTime() - new Date(b.local).getTime()))
 
-export const filterTimeline = (time: string | Date) => sortTimelines.map(item => {
+export const filterTimeline = (time: string | Date) => sortTimelines.map((item, idx) => {
     const itemTime = new Date(item.local).getTime()
     const itemDate = dayjs(item.local).format("YYYY/MM/DD")
     const outTime = new Date(time).getTime()
     const outDate = dayjs(time).format('YYYY/MM/DD')
     const incTime = itemTime - outTime
 
+    const isExpire = (itemTime + HOUR / 2) < outTime
+    const isGoing = (outTime > itemTime) && (outTime <= (itemTime + HOUR / 2))
+    const isSoon = (incTime <= HOUR) && incTime > 0
+    const isToday = itemDate === outDate
+
     return {
         ...item,
-        isExpire: (itemTime + HOUR / 2) < outTime,
-        isGoing: (outTime > itemTime) && (outTime <= (itemTime + HOUR / 2)),
-        isSoon: (incTime <= HOUR) && incTime > 0,
-        isToday: itemDate === outDate
+        isExpire,
+        isGoing,
+        isSoon,
+        isToday
     }
 })
