@@ -14,7 +14,7 @@ export default function App() {
             <div className="w-full min-h-screen pt-14 overflow-auto box-border py-3 bg-gray-100">
                 <main className="container mx-auto flex flex-col items-center">
                     <div className="flex flex-col md:items-center w-full box-border p-2">
-                        {filterTimeline(nowTime).map((item, i) => (
+                        {filterTimeline(nowTime).map((item, i) => (item.isExpire ? null : (
                             <a
                                 href={item.live}
                                 target="_blank"
@@ -32,7 +32,7 @@ export default function App() {
                                 <span className="text-sm">北京时间：<span className="text-yellow-600">{item.local}</span></span>
                                 <span className="text-sm text-gray-500">{item.desc}</span>
                             </a>
-                        ))}
+                        )))}
                     </div>
                 </main>
             </div>
